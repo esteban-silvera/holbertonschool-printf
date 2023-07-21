@@ -1,55 +1,87 @@
 #include "main.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdarg.h>
+/**
+ * format_struc - the function is the structur of swithc and case
+ *
+ * @specifier: is the prisipali paramet go to use the function
+ *
+ * @args: is the arguments go to recive for print a text
+ *
+ * @count: the cuantiti of number is a printed
+ *
+ * Return: retuns the cuantiti number printed in the function _printf
+ */
+
+void format_struc(char specifier, va_list args, int *count)
+{
+	switch (specifier)
+	{
+		case 's': {
+				char *str_arg = va_arg(args, char *);
+
+				function_s(str_arg, count);
+				break;
+			}
+		case 'c': {
+				char char_arg = va_arg(args, int);
+
+				_putchar(char_arg);
+				(*count)++;
+				break;
+			}
+		case '%': {
+				_putchar('%');
+				(*count)++;
+				break;
+			}
+		case 'i':
+		case 'd': {
+				int int_arg = va_arg(args, int);
+
+				function_d(int_arg);
+				(*count)++;
+				break;
+			}
+		default:
+		_putchar(specifier);
+		(*count)++;
+		break;
+	}
+}
+
+
 /**
  * _printf - function that produces output according to a format
  *
- * @format: string which guides the generation of the desired output
+ * @format: is a content you try to print
  *
- * Return: 'length'
+ * Return: retuns the cuantiti number printed in the function _printf
  */
+
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int length = 0;
-	char c;
+	int count = 0;
 
 	va_start(args, format);
 
-	while ((c = *format++) != '\0')
+
+	while (*format)
 	{
-		if (c != '%')
+		if (*format == '%')
 		{
-			_putchar(c);
-			length++; }
+		format++;
+		format_struc(*format, args, &count);
+		}
 		else
 		{
-			c = *format++;
-
-			switch (c)
-			{
-			case 'c': {
-					char arg = va_arg(args, int);
-
-					_putchar(arg);
-					length++;
-					break; }
-			case 's': {
-					const char *arg = va_arg(args, const char *);
-
-					while (*arg != '\0')
-					{
-						_putchar(*arg);
-						arg++;
-						length++; }
-					break; }
-			case '%': {
-					_putchar('%');
-					length++;
-					break; }
-				default:
-					break;
-			} } }
+		_putchar(*format);
+		count++;
+		}
+		format++;
+	}
 	va_end(args);
-	return (length);
+	return (count);
 }
