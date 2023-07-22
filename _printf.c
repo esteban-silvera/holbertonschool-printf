@@ -21,7 +21,12 @@ void format_struc(char specifier, va_list args, int *count)
 		case 's': {
 				char *str_arg = va_arg(args, char *);
 
-				function_s(str_arg, count);
+				if (str_arg == NULL)
+					function_s("(null)", count);
+				else
+				{
+					function_s(str_arg, count);
+				}
 				break;
 			}
 		case 'c': {
@@ -40,8 +45,7 @@ void format_struc(char specifier, va_list args, int *count)
 		case 'd': {
 				int int_arg = va_arg(args, int);
 
-				function_d(int_arg);
-				(*count)++;
+				function_d(int_arg, count);
 				break;
 			}
 		default:
@@ -65,6 +69,10 @@ int _printf(const char *format, ...)
 	va_list args;
 	int count = 0;
 
+	if (format == NULL)
+        {
+                return (-1);
+        }
 	va_start(args, format);
 
 

@@ -7,9 +7,11 @@
  * function_d - this function change a number in character for the print.
  *
  * @num: the num for the change
+ *
+ * @count: conts the numbers printed in the function
  */
 
-void function_d(int num)
+void function_d(int num, int *count)
 {
 	char arr[20];
 	int x = 0;
@@ -24,11 +26,13 @@ void function_d(int num)
 	do {
 		arr[x++] = '0' + (num % 10);
 		num /= 10;
+		(*count)++;
 	} while (num > 0);
 
 	if (Negativo)
 	{
 		arr[x++] = '-';
+		(*count)++;
 	}
 
 	while (x > 0)
@@ -52,6 +56,6 @@ void function_s(const char *string, int *position)
 	for (x = 0; string[x] != '\0'; x++)
 	{
 		_putchar(string[x]);
+		(*position)++;
 	}
-	(void)position;
 }
