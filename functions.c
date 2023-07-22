@@ -11,9 +11,9 @@
  * @count: conts the numbers printed in the function
  */
 
-void function_d(int num, int *count)
+void function_d(long int num, int *count)
 {
-	char arr[20];
+	char arr[30];
 	int x = 0;
 	int Negativo = 0;
 

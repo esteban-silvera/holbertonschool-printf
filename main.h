@@ -3,7 +3,7 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-void function_d(int num, int *count);
+void function_d(long int num, int *count);
 void function_s(const char *string, int *position);
 
 
