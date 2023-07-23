@@ -1,0 +1,71 @@
+PRINTF(3)                     Manual for _printf                     PRINTF(3)
+
+
+
+NNAAMMEE
+       _printf - formatted output function
+
+
+SSYYNNOOPPSSIISS
+       ##iinncclluuddee <<ssttddiioo..hh>>
+
+       ##iinncclluuddee mmaaiinn..hh
+
+       iinntt __pprriinnttff((ccoonnsstt cchhaarr **ffoorrmmaatt,, ......));;
+
+
+DDEESSCCRRIIPPTTIIOONN
+       _printf  print  formatted  output  to  standard  output. Supports char,
+       strings & more
+
+
+RREETTUURRNN VVAALLUUEE
+       The _printf function returns the number of characters printed
+
+
+FFOORRMMAATT SSPPEECCIIFFIIEERRSS
+       The _printf function supports the following conversion specifiers:
+
+
+       %%cc     Prints a single character.
+
+
+       %%ss     Prints a null-terminated string.
+
+
+       %%%%     Prints a literal percent sign.
+
+
+       %%dd     Prints a signed integer.
+
+
+EEXXAAMMPPLLEESS
+       The following examples demonstrate the usage of _printf:
+
+
+       Example 1: __pprriinnttff((""HHeelllloo,, %%ss!! TThhee aannsswweerr iiss %%dd..00,, JJoohhnn ,, 4422));;
+
+       HHeelllloo,, JJoohhnn!! TThhee aannsswweerr iiss 4422..
+
+
+       Example 2: __pprriinnttff((""CChhaarraacctteerr:: %%cc00,, ''AA''));;
+
+       CChhaarraacctteerr:: AA
+
+
+FFIILLEESS
+       __pprriinnttff..cc -- IImmpplleemmeennttaattiioonn ooff tthhee __pprriinnttff ffuunnccttiioonn..
+
+       mmaaiinn..hh -- TThhee hheeaaddeerr ffiillee ccoonnttaaiinniinngg ffuunnccttiioonn pprroottoottyyppeess aanndd iinncclluuddeess
+
+       ffuunnccttiioonnss..cc -- IImmpplleemmeennttaattiioonn ffiillee ccoonnttaaiinniinngg hheellppeerr ffuunnccttiioonnss
+
+       __ppuuttcchhaarr..cc -- SSeeppaarraattee ffiillee ccoonnttaaiinniinngg aa ccuussttoomm ''__ppuuttcchhaarr'' ffuunnccttiioonn
+
+
+AAUUTTHHOORR
+       Marcos Bremermann and Esteban Silvera
+
+
+
+Version 1.0                      July 14, 2023                       PRINTF(3)
